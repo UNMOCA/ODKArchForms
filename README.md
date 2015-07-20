@@ -3,7 +3,7 @@ Open Data Kit forms and conversion scripts used in archaeology.  Including New M
 
 A series of <a href="https://opendatakit.org/">Open Data Kit</a> XLSForms and Python scripts to convert from XML to Acrobat PDF format.
 
-These digital forms are used for recording informaation on archaeological sites, including photo logs and forms specific to archaeology in New Mexico (LA Forms).
+These digital forms are used for recording information on archaeological sites, including photo logs and forms specific to archaeology in New Mexico (LA Forms).
 
 Process:
 - 1) Field names and data types are defined in an XLS file which is converted for use by ODK with <a href="https://opendatakit.org/use/xlsform/">XLSForm</a>.

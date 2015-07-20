@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>OCA Photo Log</h:title>
+    <model>
+      <instance>
+        <OCA_Photo_Log id="OCA_Photo_Log">
+          <ocaProject/>
+		  <LANUM/>
+          <photoRepeat jr:template="">
+            <PHOTOGROUP>
+              <photo/>
+              <description/>
+              <date/>
+              <orientation/>
+              <recorder/>
+            </PHOTOGROUP>
+          </photoRepeat>
+          <meta>
+            <instanceID/>
+            <instanceName/>
+          </meta>
+        </OCA_Photo_Log>
+      </instance>
+      <bind nodeset="/OCA_Photo_Log/ocaProject" type="string"/>
+      <bind nodeset="/OCA_Photo_Log/LANUM" required="true()" type="int"/>
+      <bind nodeset="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/photo" type="binary"/>
+      <bind nodeset="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/description" required="true()" type="string"/>
+      <bind nodeset="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/date" type="date"/>
+      <bind nodeset="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/orientation" type="string"/>
+      <bind nodeset="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/recorder" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/OCA_Photo_Log/meta/instanceID" readonly="true()" type="string"/>
+      <bind calculate="concat( /OCA_Photo_Log/LANUM ,' - Photo Log - ', string(today()))" nodeset="/OCA_Photo_Log/meta/instanceName" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/OCA_Photo_Log/ocaProject">
+      <label>OCA Project</label>
+    </input>
+	<input ref="/OCA_Photo_Log/LANUM">
+	  <label>LA Number</label>
+	  <hint>REQUIRED. You will only be asked for this once on this photo log.</hint>
+	</input>
+    <group ref="/OCA_Photo_Log/photoRepeat">
+      <label>Photo</label>
+      <repeat nodeset="/OCA_Photo_Log/photoRepeat">
+        <group appearance="field-list" ref="/OCA_Photo_Log/photoRepeat/PHOTOGROUP">
+          <upload mediatype="image/*" ref="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/photo">
+            <label>Take A Photo</label>
+          </upload>
+          <input ref="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/description">
+            <label>Photo Description</label>
+          </input>
+          <input ref="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/date">
+            <label>Date of Photo</label>
+          </input>
+          <input ref="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/orientation">
+            <label>View</label>
+          </input>
+          <input ref="/OCA_Photo_Log/photoRepeat/PHOTOGROUP/recorder">
+            <label>Recorder(s)</label>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
