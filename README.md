@@ -8,7 +8,7 @@ These digital forms are used for recording information on archaeological sites, 
 Process:
 - 1) Field names and data types are defined in an XLS file which is converted for use by ODK with <a href="https://opendatakit.org/use/xlsform/">XLSForm</a>.
 - 2) Field data is collected on tablets
-- 3) Resulting XLS file is converted by Python scripts (thanks to <a href="https://github.com/ccnmtl/fdfgen/">FDFGen</a> and <a href="https://github.com/stchris/untangle">Untangle</a>) to pre-defined PDF forms.
+- 3) Resulting XML file is converted by Python scripts (thanks to <a href="https://github.com/ccnmtl/fdfgen/">FDFGen</a> and <a href="https://github.com/stchris/untangle">Untangle</a>) to pre-defined PDF forms.
 
 Usage: 
 python "...ODK_to_PDF.py" "ODK_instance.xml"
