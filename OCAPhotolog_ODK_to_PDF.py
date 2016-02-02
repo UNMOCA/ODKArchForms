@@ -17,6 +17,7 @@ obj = untangle.parse(modResource)
 
 lanum = str(obj.OCA_Photo_Log.LANUM.cdata)
 
+#TODO convert Blade's crazy notation to polar headings
 index = 0
 for item in obj.OCA_Photo_Log.children:
 	if 'photoRepeat' in item._name:
@@ -46,15 +47,20 @@ for item in obj.OCA_Photo_Log.children:
 if index <= 33:
 	totalPage = 1
 	fields.append(('totalPage', totalPage))
-elif index >= 34 & index <= 67:
+elif index >= 34 and index <= 67:
 	totalPage = 2
 	fields.append(('totalPage', totalPage))
-elif index >= 68 & index <= 101:
+elif index >= 68 and index <= 101:
 	totalPage = 3
 	fields.append(('totalPage', totalPage))
-else: 
+elif index >= 102 and index <= 135:
 	totalPage = 4
 	fields.append(('totalPage', totalPage))
+elif index >= 136 and index <= 169: 
+	totalPage = 5
+	fields.append(('totalPage', totalPage))
+else:
+	print("This is too long...need to build more pages!!")
 
 #write FDF file
 fdf = forge_fdf("",fields,[],[],[])
