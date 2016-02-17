@@ -384,15 +384,16 @@ for item in obj.LA_Site_Form.narrative:
 
 #write FDF file
 fdf = forge_fdf("",fields,[],[],[])
-lanum = str(obj.LA_Site_Form.IDOWN.LANUM.cdata)
-filename = "LA" + lanum + ".fdf"
+sitenum = str(obj.LA_Site_Form.IDOWN.fieldSiteNum.cdata)
+	
+filename = sitenum + ".fdf"
 fdf_file = open(filename, "wb")
 fdf_file.write(fdf)
 fdf_file.close()
 
 #fdf to pdf using pdftk
-print ("Creating LA Form PDF for LA" + lanum + "...")
-writePDF = "pdftk Blank_LA_Form.pdf fill_form " + filename + " output " + lanum + ".pdf"
+print ("Creating LA Form PDF for " + sitenum + "...")
+writePDF = "pdftk Blank_LA_Form.pdf fill_form " + filename + " output " + sitenum + ".pdf"
 call(writePDF)
 print ("Removing temp file...")
 os.remove(filename)

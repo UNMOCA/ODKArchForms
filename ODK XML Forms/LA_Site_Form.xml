@@ -1219,6 +1219,7 @@
       <instance>
         <LA_Site_Form id="LA_Site_Form">
           <IDOWN>
+            <fieldSiteNum/>
             <LANUM/>
             <siteUpdate>no</siteUpdate>
             <siteName/>
@@ -1235,8 +1236,7 @@
             <occupationType/>
           </SITEOCCUPATIONTYPE>
           <RECORDINFO1>
-            <NMCRISNum>133400</NMCRISNum>
-            <fieldSiteNum/>
+            <NMCRISNum/>
             <siteMarker>no</siteMarker>
             <siteIDNum/>
             <recorders/>
@@ -3451,7 +3451,8 @@
           </item>
         </root>
       </instance>
-      <bind nodeset="/LA_Site_Form/IDOWN/LANUM" type="int" required="true()"/>
+      <bind nodeset="/LA_Site_Form/IDOWN/fieldSiteNum" required="true()" type="string"/>
+      <bind nodeset="/LA_Site_Form/IDOWN/LANUM" type="int"/>
       <bind nodeset="/LA_Site_Form/IDOWN/siteUpdate" type="select1"/>
       <bind nodeset="/LA_Site_Form/IDOWN/siteName" type="string"/>
       <bind nodeset="/LA_Site_Form/IDOWN/repeatOtherNum/otherNum1" type="string"/>
@@ -3460,7 +3461,6 @@
       <bind nodeset="/LA_Site_Form/SITEOCCUPATIONTYPE/siteType" type="select1"/>
       <bind nodeset="/LA_Site_Form/SITEOCCUPATIONTYPE/occupationType" type="select1"/>
       <bind nodeset="/LA_Site_Form/RECORDINFO1/NMCRISNum" type="int"/>
-      <bind nodeset="/LA_Site_Form/RECORDINFO1/fieldSiteNum" type="string"/>
       <bind nodeset="/LA_Site_Form/RECORDINFO1/siteMarker" type="select1"/>
       <bind nodeset="/LA_Site_Form/RECORDINFO1/siteIDNum" relevant="selected( /LA_Site_Form/RECORDINFO1/siteMarker , 'yes')" type="string"/>
       <bind nodeset="/LA_Site_Form/RECORDINFO1/recorders" type="string"/>
@@ -3471,7 +3471,7 @@
       <bind nodeset="/LA_Site_Form/RECORDINFO2/visibilityRemarks" type="string"/>
       <bind nodeset="/LA_Site_Form/RECORDINFO3/recordActivities" type="select"/>
       <bind nodeset="/LA_Site_Form/RECORDINFO3/otherActivityDescribe" relevant="selected( /LA_Site_Form/RECORDINFO3/recordActivities , 'activitiesOther')" type="string"/>
-      <bind nodeset="/LA_Site_Form/RECORDINFO3/analysisDescription" type="string" odk:length="500"/>
+      <bind nodeset="/LA_Site_Form/RECORDINFO3/analysisDescription" type="string" odk:length="3000"/>
       <bind nodeset="/LA_Site_Form/RECORDINFO4/surfaceCollections" type="select1"/>
       <bind nodeset="/LA_Site_Form/RECORDINFO4/otherCollectionsDescribe" relevant="selected( /LA_Site_Form/RECORDINFO4/surfaceCollections , 'collectionsOther')" type="string"/>
       <bind nodeset="/LA_Site_Form/RECORDINFO4/recordsInventory" type="select"/>
@@ -3484,10 +3484,10 @@
       <bind nodeset="/LA_Site_Form/CONDITION/vandalismSources" type="select"/>
       <bind nodeset="/LA_Site_Form/CONDITION/otherVandalismSpecify" relevant="selected( /LA_Site_Form/CONDITION/vandalismSources , 'vandalismOther')" type="string"/>
       <bind nodeset="/LA_Site_Form/CONDITION/percentSiteIntact" type="select1"/>
-      <bind nodeset="/LA_Site_Form/CONDITION/observationsSiteCondition" type="string" odk:length="1500"/>
-      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/observationsDeposits" type="string" odk:length="1500"/>
-      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/vegetationOverstory" type="string" odk:length="1500"/>
-      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/vegetationUnderstory" type="string" odk:length="1500"/>
+      <bind nodeset="/LA_Site_Form/CONDITION/observationsSiteCondition" type="string" odk:length="3000"/>
+      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/observationsDeposits" type="string" odk:length="3000"/>
+      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/vegetationOverstory" type="string" odk:length="3000"/>
+      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/vegetationUnderstory" type="string" odk:length="3000"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/vegetationCommunity" type="select"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/vegetationSpecify" relevant="selected( /LA_Site_Form/PHYSICALDESCRIPTION2/vegetationCommunity , 'vegetationOther')" type="string"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/topographicLocation" type="select"/>
@@ -3495,9 +3495,9 @@
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION2/observationsSiteSetting" type="string"/>
       <bind nodeset="/LA_Site_Form/RECOMMENDATION/NREligibility" type="select1"/>
       <bind nodeset="/LA_Site_Form/RECOMMENDATION/NRCriteria" type="select"/>
-      <bind nodeset="/LA_Site_Form/RECOMMENDATION/basisRecommendation" type="string" odk:length="1500"/>
-      <bind nodeset="/LA_Site_Form/RECOMMENDATION/assessmentImpact" type="string" odk:length="1500"/>
-      <bind nodeset="/LA_Site_Form/RECOMMENDATION/treatmentRecommendations" type="string" odk:length="1500"/>
+      <bind nodeset="/LA_Site_Form/RECOMMENDATION/basisRecommendation" type="string" odk:length="3000"/>
+      <bind nodeset="/LA_Site_Form/RECOMMENDATION/assessmentImpact" type="string" odk:length="3000"/>
+      <bind nodeset="/LA_Site_Form/RECOMMENDATION/treatmentRecommendations" type="string" odk:length="3000"/>
       <bind nodeset="/LA_Site_Form/LOCATION/sourceGraphics" type="select"/>
       <bind nodeset="/LA_Site_Form/LOCATION/rectifiedScale" relevant="selected( /LA_Site_Form/LOCATION/sourceGraphics , 'sourceRectified')" type="string"/>
       <bind nodeset="/LA_Site_Form/LOCATION/otherTopoScale" relevant="selected( /LA_Site_Form/LOCATION/sourceGraphics , 'sourceOtherTopo')" type="string"/>
@@ -3511,11 +3511,11 @@
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/siteAreaBasis" type="select1"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/siteElevation" type="int"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsComplete" type="select1"/>
-      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsExplain" relevant="selected( /LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsComplete , 'no')" type="string" odk:length="1500"/>
+      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsExplain" relevant="selected( /LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsComplete , 'no')" type="string" odk:length="3000"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsBasis" type="select"/>
-      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsBasisExplain" relevant="selected( /LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsBasis , 'siteBoundsOther')" type="string" odk:length="1500"/>
+      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsBasisExplain" relevant="selected( /LA_Site_Form/PHYSICALDESCRIPTION1/siteBoundsBasis , 'siteBoundsOther')" type="string" odk:length="3000"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/depositionalEnviro" type="select"/>
-      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/depositionalEnviroExplain" relevant="selected( /LA_Site_Form/PHYSICALDESCRIPTION1/depositionalEnviro , 'depositionOther')" type="string"/>
+      <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/depositionalEnviroExplain" relevant="selected( /LA_Site_Form/PHYSICALDESCRIPTION1/depositionalEnviro , 'depositionOther')" type="string" odk:length="3000"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/depositDepth" type="select1"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/estimatedDepth" type="string"/>
       <bind nodeset="/LA_Site_Form/PHYSICALDESCRIPTION1/depthDetermination" type="select"/>
@@ -3524,7 +3524,7 @@
       <bind nodeset="/LA_Site_Form/ASSEMBLAGE1/assemblageContentCeramics" type="select"/>
       <bind nodeset="/LA_Site_Form/ASSEMBLAGE1/assemblageContentHistorics" type="select"/>
       <bind nodeset="/LA_Site_Form/ASSEMBLAGE1/assemblageContentOthers" type="select"/>
-      <bind nodeset="/LA_Site_Form/ASSEMBLAGE1/assembleOtherSpecify" type="string" odk:length="1500"/>
+      <bind nodeset="/LA_Site_Form/ASSEMBLAGE1/assembleOtherSpecify" type="string" odk:length="3000"/>
       <bind nodeset="/LA_Site_Form/ASSEMBLAGE2/assemblageLithicCount" type="select1"/>
       <bind nodeset="/LA_Site_Form/ASSEMBLAGE2/assemblageLithicCountSpecify" type="int"/>
       <bind nodeset="/LA_Site_Form/ASSEMBLAGE2/assemblageCeramicsCount" type="select1"/>
@@ -3535,7 +3535,7 @@
       <bind calculate=" /LA_Site_Form/ASSEMBLAGE2/assemblageLithicCountSpecify + /LA_Site_Form/ASSEMBLAGE2/assemblageCeramicsCountSpecify + /LA_Site_Form/ASSEMBLAGE2/assemblageHistoricCountSpecify " nodeset="/LA_Site_Form/ASSEMBLAGE2/assemblageTotalCountSpecify" type="int"/>
       <bind nodeset="/LA_Site_Form/ASSEMBLAGE2/datingPotential" type="select"/>
       <bind nodeset="/LA_Site_Form/ASSEMBLAGE2/datingPotentialSpecify" relevant="selected( /LA_Site_Form/ASSEMBLAGE2/datingPotential , 'datingPotentialOther')" type="string"/>
-      <bind nodeset="/LA_Site_Form/ASSEMBLAGE2/assemblageRemarks" type="string" odk:length="1500"/>
+      <bind nodeset="/LA_Site_Form/ASSEMBLAGE2/assemblageRemarks" type="string" odk:length="3000"/>
       <bind nodeset="/LA_Site_Form/COMPONENT/totalComponents" type="int"/>
       <bind nodeset="/LA_Site_Form/COMPONENT/componentNote" readonly="true()" type="string"/>
       <bind nodeset="/LA_Site_Form/COMPONENT/repeatComponent/componentAffiliation" type="select1"/>
@@ -3545,7 +3545,7 @@
       <bind nodeset="/LA_Site_Form/COMPONENT/repeatComponent/latestOccupationPeriod" type="select1"/>
       <bind nodeset="/LA_Site_Form/COMPONENT/repeatComponent/componentDatingStatus" type="select"/>
       <bind nodeset="/LA_Site_Form/COMPONENT/repeatComponent/componentDatingStatusSpecify" relevant="selected(./componentDatingStatus, 'datingStatusOther')" type="string"/>
-      <bind nodeset="/LA_Site_Form/COMPONENT/repeatComponent/affiliationBasisExtended" type="string" odk:length="1500"/>
+      <bind nodeset="/LA_Site_Form/COMPONENT/repeatComponent/affiliationBasisExtended" type="string" odk:length="3000"/>
       <bind nodeset="/LA_Site_Form/COMPONENT/repeatComponent/componentType" type="select1"/>
       <bind nodeset="/LA_Site_Form/COMPONENT/repeatComponent/componentTypeSpecify" relevant="selected(./componentType, 'componentTypeOther')" type="string"/>
       <bind nodeset="/LA_Site_Form/COMPONENT/repeatComponent/componentPhaseNames" type="select"/>
@@ -3556,24 +3556,28 @@
       <bind nodeset="/LA_Site_Form/FEATURES/repeatFeature/featureComponentNum" type="string"/>
       <bind nodeset="/LA_Site_Form/FEATURES/repeatFeature/featureNotes" type="string"/>
       <bind nodeset="/LA_Site_Form/FEATURES/featureRemarks" type="string" odk:length="15000"/>
-      <bind nodeset="/LA_Site_Form/REFERENCES/writtenSources" type="string" odk:length="5000"/>
-      <bind nodeset="/LA_Site_Form/REFERENCES/additionalSources" type="string" odk:length="5000"/>
+      <bind nodeset="/LA_Site_Form/REFERENCES/writtenSources" type="string" odk:length="15000"/>
+      <bind nodeset="/LA_Site_Form/REFERENCES/additionalSources" type="string" odk:length="15000"/>
       <bind nodeset="/LA_Site_Form/narrative" type="string" odk:length="15000"/>
       <bind nodeset="/LA_Site_Form/SITERECORD/siteRecordAttachments" type="select"/>
-      <bind nodeset="/LA_Site_Form/SITERECORD/otherAttachments" relevant="selected( /LA_Site_Form/SITERECORD/siteRecordAttachments , 'attachmentsOther')" type="string" odk:length="1500"/>
+      <bind nodeset="/LA_Site_Form/SITERECORD/otherAttachments" relevant="selected( /LA_Site_Form/SITERECORD/siteRecordAttachments , 'attachmentsOther')" type="string" odk:length="3000"/>
       <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/LA_Site_Form/start_time" type="dateTime"/>
       <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/LA_Site_Form/end_time" type="dateTime"/>
       <bind jr:preload="date" jr:preloadParams="today" nodeset="/LA_Site_Form/survey_day" type="date"/>
       <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/LA_Site_Form/deviceid" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/LA_Site_Form/meta/instanceID" readonly="true()" type="string"/>
-      <bind calculate="concat( /LA_Site_Form/IDOWN/LANUM ,' - Site Record - ', string(today()))" nodeset="/LA_Site_Form/meta/instanceName" type="string"/>
+      <bind calculate="concat( /LA_Site_Form/IDOWN/fieldSiteNum ,' - Site Record - ', string(today()))" nodeset="/LA_Site_Form/meta/instanceName" type="string"/>
     </model>
   </h:head>
   <h:body>
     <group ref="/LA_Site_Form/IDOWN">
+      <input ref="/LA_Site_Form/IDOWN/fieldSiteNum">
+        <label>Field Site Number</label>
+        <hint>REQUIRED.</hint>
+      </input>
       <input ref="/LA_Site_Form/IDOWN/LANUM">
         <label>LA Number</label>
-        <hint>REQUIRED.  Contact ARMS for site registration.</hint>
+        <hint>Leave blank if not available.</hint>
       </input>
       <select1 ref="/LA_Site_Form/IDOWN/siteUpdate">
         <label>Site Update?</label>
@@ -3646,9 +3650,6 @@
     <group ref="/LA_Site_Form/RECORDINFO1">
       <input ref="/LA_Site_Form/RECORDINFO1/NMCRISNum">
         <label>NMCRIS Activity No.</label>
-      </input>
-      <input ref="/LA_Site_Form/RECORDINFO1/fieldSiteNum">
-        <label>Field Site Number</label>
       </input>
       <select1 ref="/LA_Site_Form/RECORDINFO1/siteMarker">
         <label>Site Marker?</label>
